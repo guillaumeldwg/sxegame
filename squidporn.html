@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Squid Porn</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        /* Votre code CSS ici */
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .logo {
+            position: absolute;
+            top: 20px; /* Ajustez la position verticale du logo */
+            left: 20px; /* Ajustez la position horizontale du logo */
+            z-index: 9999; /* Assurez-vous que le logo s'affiche au-dessus du contenu */
+        }
+
+        .logo img {
+            width: 100px; /* Ajustez la taille du logo selon vos besoins */
+        }
+
+        /* Autres styles CSS */
+        .header {
+            padding: 20px;
+            background-color: #FF0000;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .search {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .search input[type="text"] {
+            padding: 10px;
+            width: 400px;
+            font-size: 18px;
+        }
+
+        .search input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #FF0000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .content {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .video {
+            margin-bottom: 30px;
+            border: 2px solid #FF0000; /* Ajoutez cette ligne pour ajouter un contour rouge */
+            padding: 10px; /* Ajoutez cette ligne pour ajouter un espacement entre les vidéos */
+        }
+
+        .ad {
+            margin-bottom: 20px;
+            text-align: center;
+            filter: blur(10px); /* Ajout du flou à la publicité */
+        }
+
+        .ad img {
+            width: 250px;
+        }
+
+        .ad p {
+            margin-top: 10px;
+        }
+
+        .sidebar {
+            float: left;
+            width: 200px;
+            background-color: #333;
+            padding: 20px;
+            height: 100%;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+            background-color: #FF0000; /* Ajoutez cette ligne pour mettre le fond en rouge */
+            padding: 5px; /* Ajoutez cette ligne pour ajouter un espace entre les catégories */
+        }
+
+        .sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        /* Styles pour la fenêtre contextuelle (pop-up) */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .popup {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .popup h2 {
+            margin-bottom: 20px;
+        }
+
+        .popup button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #FF0000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            font-size: 14px;
+        }
+    </style>
+    <script>
+        // Vérifier si l'utilisateur accède depuis un appareil mobile
+        function isMobileDevice() {
+            return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+        }
+
+        // Rediriger vers la version mobile si l'utilisateur est sur un appareil mobile
+        if (isMobileDevice()) {
+            window.location.href = "squidporn-mobile.html";
+        }
+
+        function confirmAge() {
+            document.getElementById("overlay").style.display = "none";
+            document.querySelector(".ad").style.filter = "none"; // Supprime le filtre de flou sur la publicité
+        }
+
+        function closePage() {
+            window.location.href = "https://www.instagram.com/hxklxn/";
+        }
+
+        function submitComment(button) {
+            var commentSection = button.parentNode;
+            var textarea = commentSection.querySelector("textarea");
+            var comment = textarea.value;
+
+            if (comment.trim() !== "") {
+                var commentElement = document.createElement("p");
+                commentElement.textContent = comment;
+                commentSection.insertBefore(commentElement, textarea);
+
+                textarea.value = "";
+            }
+        }
+
+        function showLogin() {
+            document.getElementById("loginForm").style.display = "block";
+            document.getElementById("signupForm").style.display = "none";
+        }
+
+        function showSignup() {
+            document.getElementById("signupForm").style.display = "block";
+            document.getElementById("loginForm").style.display = "none";
+        }
+
+    </script>
+</head>
+<body>
+    <div class="user-panel">
+        <div class="user-panel-buttons">
+            <button onclick="showLogin()">Connexion</button>
+            <button onclick="showSignup()">Inscription</button>
+        </div>
+        <div class="user-panel-forms">
+            <form id="loginForm" style="display: none;">
+                <h2>Connexion</h2>
+                <input type="text" placeholder="Nom d'utilisateur" required />
+                <input type="password" placeholder="Mot de passe" required />
+                <button type="submit">Se connecter</button>
+            </form>
+            <form id="signupForm" style="display: none;">
+                <h2>Inscription</h2>
+                <input type="text" placeholder="Nom d'utilisateur" required />
+                <input type="email" placeholder="Adresse e-mail" required />
+                <input type="password" placeholder="Mot de passe" required />
+                <input type="password" placeholder="Confirmer le mot de passe" required />
+                <button type="submit">S'inscrire</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="logo">
+        <img src="logo squidporn.jpg" alt="Logo" />
+    </div>
+
+    <div class="header">
+        Squid Porn
+    </div>
+
+    <div class="overlay" id="overlay">
+        <div class="popup">
+            <h2>Êtes-vous majeur ?</h2>
+            <button onclick="confirmAge()">Oui</button>
+            <button onclick="closePage()">Non</button>
+        </div>
+    </div>
+
+    <div class="ad">
+        <div class="ad-wrapper">
+            <img src="bite.jpg" alt="Publicité" />
+            <p>Toi aussi tu veux une bite énorme comme Guillaume et sa bite énorme ?</p>
+        </div>
+    </div>
+
+    <div class="search">
+        <form action="recherche.php" method="GET">
+            <input type="text" name="query" placeholder="Rechercher des vidéos..." />
+            <input type="submit" value="Rechercher" />
+        </form>
+    </div>
+
+    <div class="sidebar">
+        <ul>
+            <li><a href="#">Skinny</a></li>
+            <li><a href="#">Géchar</a></li>
+            <li><a href="#">Milf</a></li>
+            <li><a href="#">Étudiantes</a></li>
+            <li><a href="#">Hondi</a></li>
+            <li><a href="#">Lesbiennes</a></li>
+            <li><a href="#">Famille</a></li>
+            <li><a href="#">BDSM</a></li>
+            <li><a href="#">Interracial</a></li>
+            <li><a href="#">Couples amateurs</a></li>
+            <li><a href="#">Femmes matures</a></li>
+            <li><a href="#">Orgies</a></li>
+            <li><a href="#">Gros seins</a></li>
+            <li><a href="#">Fétichisme des pieds</a></li>
+            <li><a href="#">Culottes sales</a></li>
+            <li><a href="#">Trio</a></li>
+            <li><a href="#">Latina</a></li>
+            <!-- Ajoutez d'autres catégories ici -->
+        </ul>
+    </div>
+
+    <div class="content">
+        <div class="video">
+            <h2>Flash McQueen décide de punir son frère jumeau</h2>
+            <video src="Flash Sextape.mp4" controls></video>
+
+            <div class="comments">
+                <textarea placeholder="Ajouter un commentaire..." rows="3"></textarea>
+                <button onclick="submitComment(this)">Envoyer</button>
+            </div>
+        </div>
+    
+        <div class="video">
+            <h2>Un professeur corrige son élève trop bavard</h2>
+            <video src="élève puni.mp4" controls></video>
+
+            <div class="comments">
+                <textarea placeholder="Ajouter un commentaire..." rows="3"></textarea>
+                <button onclick="submitComment(this)">Envoyer</button>
+            </div>
+        </div>
+    
+        <div class="video">
+            <h2>Chicharito avoue fréquenter des harems homosexuels</h2>
+            <video src="chicharito.mp4" controls></video>
+
+            <div class="comments">
+                <textarea placeholder="Ajouter un commentaire..." rows="3"></textarea>
+                <button onclick="submitComment(this)">Envoyer</button>
+            </div>
+        </div>
+
+        <div class="video">
+            <h2>La depression et la kiffance le baise sur son canapé</h2>
+            <video src="depression.mp4" controls></video>
+
+            <div class="comments">
+                <textarea placeholder="Ajouter un commentaire..." rows="3"></textarea>
+                <button onclick="submitComment(this)">Envoyer</button>
+            </div>
+        </div>
+
+        <div class="video">
+            <h2>[POV] Je voulais aller chercher du sucre chez mon voisin, il en a décidé autrement.</h2>
+            <video src="povjade.mp4" controls></video>
+
+            <div class="comments">
+                <textarea placeholder="Ajouter un commentaire..." rows="3"></textarea>
+                <button onclick="submitComment(this)">Envoyer</button>
+            </div>
+        </div>
+        <!-- Ajoutez d'autres vidéos et du contenu ici -->
+    <div class="footer">
+        © 2023 Squid Porn. Tous droits réservés.
+    </div>
+</body>
+</html>

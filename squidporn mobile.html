@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Squid Porn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Votre code CSS ici */
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .logo {
+            position: absolute;
+            top: 20px; /* Ajustez la position verticale du logo */
+            left: 20px; /* Ajustez la position horizontale du logo */
+            z-index: 9999; /* Assurez-vous que le logo s'affiche au-dessus du contenu */
+        }
+
+        .logo img {
+            width: 100px; /* Ajustez la taille du logo selon vos besoins */
+        }
+
+        /* Autres styles CSS */
+        .header {
+            padding: 20px;
+            background-color: #FF0000;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .search {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .search input[type="text"] {
+            padding: 10px;
+            width: 100%;
+            max-width: 400px;
+            font-size: 18px;
+        }
+
+        .search input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #FF0000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .content {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .video {
+            margin-bottom: 30px;
+        }
+
+        .ad {
+            margin-bottom: 20px;
+            text-align: center;
+            filter: blur(10px); /* Ajout du flou à la publicité */
+        }
+
+        .ad img {
+            width: 100%;
+            max-width: 250px;
+        }
+
+        .ad p {
+            margin-top: 10px;
+        }
+
+        .sidebar {
+            width: 100%;
+            background-color: #333;
+            padding: 20px;
+            height: 100%;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+            background-color: #FF0000; /* Ajoutez cette ligne pour mettre le fond en rouge */
+            padding: 5px; /* Ajoutez cette ligne pour ajouter un espace entre les catégories */
+        }
+
+        .sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        /* Styles pour la fenêtre contextuelle (pop-up) */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .popup {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .popup h2 {
+            margin-bottom: 20px;
+        }
+
+        .popup button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #FF0000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <img src="logo squidporn.jpg" alt="Logo" />
+    </div>
+
+    <div class="header">
+        Squid Porn
+    </div>
+
+    <div class="overlay" id="overlay">
+        <div class="popup">
+            <h2>Êtes-vous majeur ?</h2>
+            <button onclick="confirmAge()">Oui</button>
+            <button onclick="closePage()">Non</button>
+        </div>
+    </div>
+
+    <div class="ad">
+        <div class="ad-wrapper">
+            <img src="bite.jpg" alt="Publicité" />
+            <p>Toi aussi tu veux une bite énorme comme Guillaume et sa bite énorme ?</p>
+        </div>
+    </div>
+
+    <div class="search">
+        <form action="recherche.php" method="GET">
+            <input type="text" name="query" placeholder="Rechercher des vidéos..." />
+            <input type="submit" value="Rechercher" />
+        </form>
+    </div>
+
+    <div class="content">
+        <div class="video">
+            <h2>Flash McQueen décide de punir son frère jumeau</h2>
+            <video src="Flash Sextape.mp4" controls></video>
+
+            <div class="comments">
+                <textarea placeholder="Ajouter un commentaire..." rows="3"></textarea>
+                <button onclick="submitComment(this)">Envoyer</button>
+            </div>
+        </div>
+    
+        <div class="video">
+            <h2>Un professeur corrige son élève trop bavard</h2>
+            <video src="élève puni.mp4" controls></video>
+
+            <div class="comments">
+                <textarea placeholder="Ajouter un commentaire..." rows="3"></textarea>
+                <button onclick="submitComment(this)">Envoyer</button>
+            </div>
+        </div>
+    
+        <div class="video">
+            <h2>Chicharito avoue fréquenter des harems homosexuels</h2>
+            <video src="chicharito.mp4" controls></video>
+
+            <div class="comments">
+                <textarea placeholder="Ajouter un commentaire..." rows="3"></textarea>
+                <button onclick="submitComment(this)">Envoyer</button>
+            </div>
+        </div>
+
+        <div class="video">
+            <h2>La depression et la kiffance le baise sur son canapé</h2>
+            <video src="depression.mp4" controls></video>
+
+            <div class="comments">
+                <textarea placeholder="Ajouter un commentaire..." rows="3"></textarea>
+                <button onclick="submitComment(this)">Envoyer</button>
+            </div>
+        </div>
+        <!-- Ajoutez d'autres vidéos et du contenu ici -->
+    </div>
+    
+
+    <div class="footer">
+        © 2023 Squid Porn. Tous droits réservés.
+    </div>
+
+    <script>
+        function confirmAge() {
+            document.getElementById("overlay").style.display = "none";
+            document.querySelector(".ad").style.filter = "none"; // Supprime le filtre de flou sur la publicité
+        }
+
+        function closePage() {
+            window.location.href = "https://www.instagram.com/hxklxn/";
+        }
+
+        function submitComment(button) {
+            var commentSection = button.parentNode;
+            var textarea = commentSection.querySelector("textarea");
+            var comment = textarea.value;
+
+            if (comment.trim() !== "") {
+                var commentElement = document.createElement("p");
+                commentElement.textContent = comment;
+                commentSection.insertBefore(commentElement, textarea);
+
+                textarea.value = "";
+            }
+        }
+    </script>
+</body>
+</html>
